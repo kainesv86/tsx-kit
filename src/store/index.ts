@@ -1,9 +1,16 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-export interface RootState {}
+import { AuthState } from "../common/interface/dto/auth.dto";
+import { authReducer } from "./auth";
 
-const reducers = combineReducers<RootState>({});
+export interface RootState {
+        auth: AuthState;
+}
+
+const reducers = combineReducers<RootState>({
+        auth: authReducer,
+});
 
 export const store = configureStore({
-        reducer: {},
+        reducer: reducers,
 });
