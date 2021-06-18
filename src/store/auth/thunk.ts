@@ -11,3 +11,6 @@ class AuthThunk {
                 return null;
         });
 }
+
+export const authThunk = new AuthThunk(authApi);
+export default authThunk;

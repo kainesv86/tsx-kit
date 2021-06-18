@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AuthState } from "../../common/interface/dto/auth.dto";
+import { authThunk } from "./thunk";
 
 const initialState: AuthState = {
         username: "",
@@ -16,9 +17,11 @@ const auth = createSlice({
                         return initialState;
                 },
         },
-        extraReducers: (builder) => {},
+        extraReducers: (builder) => {
+                builder.addCase(authThunk.loginUser.fulfilled, (state) => ({ ...state, isLogin: true }));
+        },
 });
 
-export const authActions = { resetAuth: auth.actions.resetAuth };
+export const authActions = { ...auth.actions };
 
 export const authReducer = auth.reducer;
