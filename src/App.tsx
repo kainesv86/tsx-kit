@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import { Route, Switch } from "react-router-dom";
 
@@ -10,6 +10,8 @@ import Nothing from "./pages/nothing";
 import { store } from "./store";
 import { authActions } from "./store/auth";
 
+import AuthRoute from "./common/HOC/authRoute";
+
 function App() {
         useEffect(() => {
                 store.dispatch(authActions.resetAuth());
@@ -20,9 +22,14 @@ function App() {
                         <Navbar />
                         <div className="flex-1 h-auto">
                                 <Switch>
-                                        <Route path="/">
+                                        <Route path="/1">
                                                 <Nothing />
                                         </Route>
+                                        <AuthRoute>
+                                                <Route path="/needtologin">
+                                                        <h1>If you can read this one, you are already login</h1>
+                                                </Route>
+                                        </AuthRoute>
                                 </Switch>
                         </div>
                         <Footer />
