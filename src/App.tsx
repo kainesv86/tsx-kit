@@ -22,7 +22,7 @@ function App() {
                         <Navbar />
                         <div className="flex-1 h-auto">
                                 <Switch>
-                                        <Route path="/1">
+                                        <Route path="/">
                                                 <Nothing />
                                         </Route>
                                         <AuthRoute>

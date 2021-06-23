@@ -6,6 +6,7 @@ const initialState: AuthState = {
         username: "",
         fullname: "",
         email: "",
+        role: "USER",
         isLogin: false,
 };
 
